@@ -12,6 +12,8 @@ import AuthenticationServices
 class ViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     
+    fileprivate var userIdentifier: String?  // Used to save the id of an authenticated user
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,9 +22,7 @@ class ViewController: UIViewController {
         signInBtn.frame.size = CGSize(width: 280, height: 60)   // 280 x 60 is the Apple recommended size
         signInBtn.addTarget(self, action: #selector(handleSignInWithApple), for: .touchUpInside)
         stackView.addArrangedSubview(signInBtn)
-        
     }
-
     
     /// Request an authorization using Sign in with Apple
     @objc func handleSignInWithApple() {
@@ -43,6 +43,29 @@ class ViewController: UIViewController {
         // Authorization succeeds: the controller calls authorizationController(controller:didCompleteWithAuthorization:)
         // Authorization fails: the system calls the authorizationController(controller:didCompleteWithError:)
         authorizationController.performRequests()
+    }
+    
+    @IBAction func performSecureTaskTapped(_ sender: Any) {
+        guard userIdentifier != nil else { return }
+        
+        let provider = ASAuthorizationAppleIDProvider()
+        
+        // See if there is valid crential for the user.
+        // Apple recommends this is done before performing any task that relies on the user being
+        // signed-in with an Apple ID. This is because at any time a user can sign out
+        provider.getCredentialState(forUserID: userIdentifier!) { (credentialState, error) in
+            switch credentialState {
+                case .authorized:
+                    print("Apple ID credential is valid and authorized! OK to perform secure task :-)")
+                    break
+                case .revoked: fallthrough
+                case .notFound:
+                    self.userIdentifier = nil
+                    print("Apple ID credential not found. Need to re-authenticate")
+                    break
+                default: break
+            }
+        }
     }
 }
 
@@ -68,11 +91,14 @@ extension ViewController: ASAuthorizationControllerDelegate {
         print(appleIDCredential.user)  // Identifier associated with an authenticated user. Use as Primary Key when storing
         print(appleIDCredential.fullName?.givenName ?? "No name")
         print(appleIDCredential.email ?? "No email")
+        
+        userIdentifier = appleIDCredential.user  // Save the user id
     }
     
     /// Handle error authorization errors
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("Authorization failed: \(error.localizedDescription)")
+        userIdentifier = nil
     }
 }
 

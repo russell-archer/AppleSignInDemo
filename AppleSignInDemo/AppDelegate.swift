@@ -7,34 +7,11 @@
 //
 
 import UIKit
-import AuthenticationServices
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Get saved user identifier (e.g. from keychain or database). Using hard-coded example for demo
-        let userIdentifier = "001664.3aa027ba9878489ca624ee2020936ff8.1946"
-
-        let provider = ASAuthorizationAppleIDProvider()
-        
-        // See if we have an existing valid crential for the user
-        provider.getCredentialState(forUserID: userIdentifier) { (credentialState, error) in
-            switch credentialState {
-                case .authorized:
-                    print("Apple ID credential is valid and authorized")
-                    break
-                case .revoked:
-                    print("Apple ID credential has been revoked")
-                    break
-                case .notFound:
-                    print("Apple ID credential not found - need to re-authenticate")
-                    break
-                default:
-                    break
-            }
-        }
-        
         return true
     }
 
