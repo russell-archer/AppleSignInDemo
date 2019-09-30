@@ -11,9 +11,7 @@ Sign in with Apple doesn’t work correctly in the simulator.
 ___
 
 ## Overview
-Sign in with Apple is a new service introduced with iOS 13 that allows users to sign into your app or website using their Apple ID.
-The user controls what data is available to the website. For example, they can hide their real email address and have Apple create
-a random email relay address that forwards email from the app or website to their real email account.
+Sign in with Apple is a new service introduced with iOS 13 that allows users to sign into your app or website using their Apple ID. The user controls what data is available to the website. For example, they can hide their real email address and have Apple create a random email relay address that forwards email from the app or website to their real email account.
 
 ## Getting Started 
 Note that for this demo you’ll need:
@@ -26,7 +24,7 @@ Update the app’s provisioning profile to add support for the **Sign In with Ap
 
 ![](./readme-assets/img1.jpg)
 
-Now add the AuthenticationServices framework to the app in the General section of Target settings:
+Now add the **AuthenticationServices** framework to the app in the **General** section of **Target** settings:
 
 ![](./readme-assets/img2.jpg)
 ![](./readme-assets/img3.jpg)
