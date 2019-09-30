@@ -82,17 +82,6 @@ ___
 We now need to add code to request an actual authorization when the sign in button’s tapped:
 
 ``` swift
-//
-//  ViewController.swift
-//  AppleSignInDemo
-//
-//  Created by Russell Archer on 27/09/2019.
-//  Copyright © 2019 Russell Archer. All rights reserved.
-//
-
-import UIKit
-import AuthenticationServices
-
 class ViewController: UIViewController {
     :
     :
