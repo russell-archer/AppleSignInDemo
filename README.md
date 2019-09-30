@@ -6,6 +6,8 @@ This demo shows how to use the new Sign in with Apple to authenticate users.
 Note that for this demo you’ll need an actual device running iOS 13. 
 Sign in with Apple doesn’t work correctly in the simulator.
 
+![](./readme-assets/img5.jpg)
+
 ___
 
 ## Overview
