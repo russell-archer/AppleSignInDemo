@@ -230,7 +230,7 @@ Assuming you correctly authenticate you should see the following in the console 
 
 ```
 Authorized!
-<Apple ID Credential User>e.g. 001664.3aa027ba9878489ca624ee2020936ff8.1946
+<Apple ID Credential User>
 <Your name> 
 <Your real email or Apple relay email address>
 ```
@@ -239,7 +239,7 @@ On subsequent sign in attempts you’ll see:
 
 ```
 Authorized!
-001664.3aa027ba9878489ca624ee2020936ff8.1946
+0102....036
 No name
 No email
 ```
@@ -259,7 +259,6 @@ Here’s the updated ViewController code:
 
 ``` swift
 class ViewController: UIViewController {
-    @IBOutlet weak var stackView: UIStackView!
     
     fileprivate var userIdentifier: String?  // Used to save the id of an authenticated user
     
