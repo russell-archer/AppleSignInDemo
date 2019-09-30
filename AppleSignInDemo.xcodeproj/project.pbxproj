@@ -13,6 +13,7 @@
 		6812907B233E7E7A00817E10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68129079233E7E7A00817E10 /* Main.storyboard */; };
 		6812907D233E7E7B00817E10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6812907C233E7E7B00817E10 /* Assets.xcassets */; };
 		68129080233E7E7B00817E10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6812907E233E7E7B00817E10 /* LaunchScreen.storyboard */; };
+		683C7DED234126A300C9A2F7 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 683C7DEC234126A300C9A2F7 /* AuthenticationServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		6812907C233E7E7B00817E10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6812907F233E7E7B00817E10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68129081233E7E7B00817E10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68129087233ED7AD00817E10 /* AppleSignInDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppleSignInDemo.entitlements; sourceTree = "<group>"; };
+		683C7DEC234126A300C9A2F7 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				683C7DED234126A300C9A2F7 /* AuthenticationServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +46,7 @@
 			children = (
 				68129072233E7E7A00817E10 /* AppleSignInDemo */,
 				68129071233E7E7A00817E10 /* Products */,
+				683C7DEB234126A300C9A2F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +61,7 @@
 		68129072233E7E7A00817E10 /* AppleSignInDemo */ = {
 			isa = PBXGroup;
 			children = (
+				68129087233ED7AD00817E10 /* AppleSignInDemo.entitlements */,
 				68129073233E7E7A00817E10 /* AppDelegate.swift */,
 				68129075233E7E7A00817E10 /* SceneDelegate.swift */,
 				68129077233E7E7A00817E10 /* ViewController.swift */,
@@ -65,6 +71,14 @@
 				68129081233E7E7B00817E10 /* Info.plist */,
 			);
 			path = AppleSignInDemo;
+			sourceTree = "<group>";
+		};
+		683C7DEB234126A300C9A2F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				683C7DEC234126A300C9A2F7 /* AuthenticationServices.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +298,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AppleSignInDemo/AppleSignInDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R6BE99W3FU;
 				INFOPLIST_FILE = AppleSignInDemo/Info.plist;
@@ -302,6 +317,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AppleSignInDemo/AppleSignInDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R6BE99W3FU;
 				INFOPLIST_FILE = AppleSignInDemo/Info.plist;
